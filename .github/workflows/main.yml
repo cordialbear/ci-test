@@ -38,6 +38,7 @@ jobs:
 
     # start kong dockers
     - run: docker-compose up -d
+    - run: sleep 30
 
     - name: test kong-cp starts up
       if: always()
@@ -45,10 +46,12 @@ jobs:
         curl -X GET http://localhost:8001/services
   
     - name: create service
+      if: always()
       run: |
         curl -i -s -X POST http://localhost:8001/services --data name=example_service --data url='http://httpbin.org'
 
     - name: check kong-cp log
+      if: always()
       run: |
         docker logs kong-cp
     
