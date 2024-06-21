@@ -40,8 +40,8 @@ jobs:
     - run: docker-compose up -d
     - name: test kong-cp starts up
       run: |
-        ping -w30 http://localhost:8002/
-        ping -w5 http://localhost:8001/
+        sleep 30
+        curl -X GET http://localhost:8001/services
 
     # run tests
 
