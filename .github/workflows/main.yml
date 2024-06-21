@@ -19,8 +19,8 @@ jobs:
     - uses: actions/checkout@
     - name: Install Compose
       uses: KengoTODA/actions-setup-docker-compose@v1
-        with:
-          version: '2.14.2' # the full version of `docker-compose` command
+      with:
+        version: '2.14.2' # the full version of `docker-compose` command
     - run: docker-compose --version
     - run: docker-compose up -d
     - name: Set up Python 3.10
